@@ -8,7 +8,29 @@
    - productId: unique id for the product (number)
    - image: picture of product (url string)
 */
-
+let products = [
+  {
+    name: "cherry",
+    price: 10,
+    quantity: 0,
+    productId: 105,
+    image: "./images/cherry.jpg",
+  },
+  {
+    name: "orange",
+    price: 20,
+    quantity: 0,
+    productId: 210,
+    image: "./images/orange.jpg",
+  },
+  {
+    name: "strawberry",
+    price: 30,
+    quantity: 0,
+    productId: 315,
+    image: "./images/strawberry.jpg",
+  },
+];
 /* Images provided in /images folder. All images from Unsplash.com
    - cherry.jpg by Mae Mu
    - orange.jpg by Mae Mu
