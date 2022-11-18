@@ -10,21 +10,21 @@
 */
 let products = [
   {
-    name: "cherry",
+    name: "Cherry",
     price: 10,
     quantity: 0,
     productId: 100,
     image: "./images/cherry.jpg",
   },
   {
-    name: "orange",
+    name: "Orange",
     price: 20,
     quantity: 0,
     productId: 200,
     image: "./images/orange.jpg",
   },
   {
-    name: "strawberry",
+    name: "Strawberry",
     price: 30,
     quantity: 0,
     productId: 300,
@@ -73,12 +73,11 @@ function increaseQuantity(productId) {
   - if the function decreases the quantity to 0, the product is removed from the cart
 */
 function decreaseQuantity(productId) {
-  let index = cart.indexOf(productId);
-  for (let i = 0; i < products.length; i++) {
-    if (productId === products[i].productId) {
-      products[i].quantity--;
-      if (products[i].quantity == 0) {
-        cart.splice(index, 1);
+  for (let i = 0; i < cart.length; i++) {
+    if (productId === cart[i].productId) {
+      cart[i].quantity--;
+      if (cart[i].quantity == 0) {
+        cart.splice(i, 1);
       }
     }
   }
@@ -90,11 +89,10 @@ function decreaseQuantity(productId) {
   - removeProductFromCart should remove the product from the cart
 */
 function removeProductFromCart(productId) {
-  let index = cart.indexOf(productId);
-  for (let i = 0; i < products.length; i++) {
-    if (productId === products[i].productId) {
-      products[i].quantity = 0;
-      cart.splice(index, 1);
+  for (let i = 0; i < cart.length; i++) {
+    if (productId === cart[i].productId) {
+      cart[i].quantity = 0;
+      cart.splice(i, 1);
     }
   }
 }
