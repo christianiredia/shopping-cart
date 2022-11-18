@@ -136,16 +136,16 @@ function pay(amount) {
    npm run test
 */
 
-// module.exports = {
-//   products,
-//   cart,
-//   addProductToCart,
-//   increaseQuantity,
-//   decreaseQuantity,
-//   removeProductFromCart,
-//   cartTotal,
-//   pay,
-//   emptyCart,
-/* Uncomment the following line if completing the currency converter bonus */
-// currency
-// };
+module.exports = {
+  products,
+  cart,
+  addProductToCart,
+  increaseQuantity,
+  decreaseQuantity,
+  removeProductFromCart,
+  cartTotal,
+  pay,
+  emptyCart,
+  /* Uncomment the following line if completing the currency converter bonus */
+  // currency
+};
