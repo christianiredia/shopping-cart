@@ -8,7 +8,7 @@
    - productId: unique id for the product (number)
    - image: picture of product (url string)
 */
-let products = [
+const products = [
   {
     name: "Cherry",
     price: 10,
