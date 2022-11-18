@@ -45,20 +45,25 @@ let cart = [];
   - if the product is not already in the cart, add it to the cart
 */
 function addProductToCart(productId) {
-  if (productId === products.productId) {
-    productId.quantity++;
-  }
-  if (!cart.includes(productId)) {
-    cart.push(productId);
+  for (let i = 0; i < products.length; i++) {
+    if (productId === products[i].productId) {
+      products[i].quantity++;
+      if (!cart.includes(products[i])) {
+        cart.push(products[i]);
+      }
+    }
   }
 }
+
 /* Create a function named increaseQuantity that takes in the productId as an argument
   - increaseQuantity should get the correct product based on the productId
   - increaseQuantity should then increase the product's quantity
 */
 function increaseQuantity(productId) {
-  if (productId === products.productId) {
-    productId.quantity++;
+  for (let i = 0; i < products.length; i++) {
+    if (productId === products[i].productId) {
+      products[i].quantity++;
+    }
   }
 }
 
@@ -69,10 +74,12 @@ function increaseQuantity(productId) {
 */
 function decreaseQuantity(productId) {
   let index = cart.indexOf(productId);
-  if (productId === products.productId) {
-    productId.quantity--;
-    if (productId.quantity <= 0) {
-      cart.splice(index, 1);
+  for (let i = 0; i < products.length; i++) {
+    if (productId === products[i].productId) {
+      products[i].quantity--;
+      if (products[i].quantity == 0) {
+        cart.splice(index, 1);
+      }
     }
   }
 }
@@ -84,9 +91,11 @@ function decreaseQuantity(productId) {
 */
 function removeProductFromCart(productId) {
   let index = cart.indexOf(productId);
-  if (productId === products.productId) {
-    productId.quantity === 0;
-    cart.splice(index, 1);
+  for (let i = 0; i < products.length; i++) {
+    if (productId === products[i].productId) {
+      products[i].quantity = 0;
+      cart.splice(index, 1);
+    }
   }
 }
 
@@ -96,15 +105,15 @@ function removeProductFromCart(productId) {
 */
 function cartTotal() {
   let total = 0;
-  for (let i = 0; i < cart.length; i++) {
-    total += cart[i];
-  }
+  cart.forEach(function (item) {
+    total += item.price * item.quantity;
+  });
   return total;
 }
 
 /* Create a function called emptyCart that empties the products from the cart */
 function emptyCart() {
-  cart = [];
+  cart.length = 0;
 }
 
 /* Create a function named pay that takes in an amount as an argument
@@ -112,10 +121,10 @@ function emptyCart() {
   - pay will return a positive number if money should be returned to customer
 */
 function pay(amount) {
-  if (amount < cartTotal()) {
-    return `-${amount}`;
-  } else {
-    return `+${amount}`;
+  if (amount < cartTotal) {
+    return -Math.abs(cartTotal - amount);
+  } else if (amount > cartTotal) {
+    return amount - cartTotal;
   }
 }
 
