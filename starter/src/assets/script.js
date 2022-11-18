@@ -121,10 +121,10 @@ function emptyCart() {
   - pay will return a positive number if money should be returned to customer
 */
 function pay(amount) {
-  if (amount < cartTotal) {
-    return -Math.abs(cartTotal - amount);
-  } else if (amount > cartTotal) {
-    return amount - cartTotal;
+  if (amount < cartTotal()) {
+    return (cartTotal() - amount) * -1;
+  } else if (amount > cartTotal()) {
+    return amount - cartTotal();
   }
 }
 
