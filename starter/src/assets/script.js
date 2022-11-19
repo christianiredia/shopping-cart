@@ -119,11 +119,9 @@ function emptyCart() {
   - pay will return a positive number if money should be returned to customer
 */
 function pay(amount) {
-  if (amount < cartTotal()) {
-    return (cartTotal() - amount) * -1;
-  } else if (amount > cartTotal()) {
-    return amount - cartTotal();
-  }
+  let totalPaid = 0;
+  totalPaid += amount;
+  return totalPaid - cartTotal();
 }
 
 /* Place stand out suggestions here (stand out suggestions can be found at the bottom of the project rubric.)*/
